@@ -1,0 +1,86 @@
+ 
+
+ .h1 span {
+	color: #AD0002;
+ }
+
+ .offer-list:not(.gridbox) .offer-card:nth-child(1), .offer-list:not(.gridbox) .offer-card:nth-child(2) {
+	border: none;
+}
+
+.offer-list:not(.gridbox) .offer-card:nth-child(1) .offer-bonus:before, .offer-list:not(.gridbox) .offer-card:nth-child(2) .offer-bonus:before {
+	display: none;
+}
+
+.offer-list:not(.gridbox) .offer-card .offer-bonus:before {
+	display: none;
+ 	position: absolute;
+	top: -20px;
+	left: 0;
+	content: "";
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 18px;
+	color: #181717;
+	background: #ffb800;
+	border-radius: 0 0 5px 5px;
+	padding: 3px 7px; 
+}
+@media screen and (max-width: 768px) {
+	.btn-up {
+		display: none!important;
+	}	
+} 
+
+@media screen and (min-width: 992px) {
+	.banner-logo .img {
+		height: auto;
+	}
+}
+.bonus-btn .img, .offer-logo .img {
+	height: auto;
+}
+
+@media screen and (max-width: 700px) {
+	.update__item {
+		 min-width: unset;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.banner-logo .img {
+		 height: auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.offer-td.offer-logo .img {
+		 height: auto;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	h1, .h1 {
+		font-size: 24px;
+		line-height: 26px;
+	}
+
+	.update.flexbox {
+		margin-bottom: 10px;
+		gap: 0px 5px;;
+	}
+	.update-title, .update-descr{
+		font-size: 12px;
+		line-height: 16px;
+	}
+	.hero {
+		padding: 10px 0 5px;
+		margin-bottom: 5px;
+	}
+	.offer h2{
+		font-size: 20px;
+		line-height: 24px;
+		margin-bottom: 0;
+	}
+}
