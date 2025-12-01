@@ -156,18 +156,18 @@ add_shortcode('faq', function ($attr, $content) {
 	$res = '</section>
 		<section class="section section_yellow">
                 <h2 class="h2">' . $block['title'] . '</h2>
-                <div class="faq" itemscope itemtype="https://schema.org/FAQPage">';
+                <div class="faq">';
 	if ($block['items']) foreach ($block['items'] as $item) {
 		$res .= '
-						  <details class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" open>
+						  <details class="faq__item" open>
                         <summary class="faq-heading flexbox">
-                            <span class="heading" itemprop="name">' . $item['title'] . '</span>
+                            <span class="heading">' . $item['title'] . '</span>
                             <svg class="faq-icon" width="14" height="8">
                                 <use href="' . TEMPLATE_URL . 'img/sprite.svg#sprite--arrow-none" />
                             </svg>
                         </summary>
-                        <div class="text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-									<div itemprop="text">' . $item['text'] . '</div>                            
+                        <div class="text">
+									<div>' . $item['text'] . '</div>                            
                         </div>
                     </details>';
 	}
@@ -553,7 +553,7 @@ function dimox_breadcrumbs()
 	$text['page']     = 'Page %s'; // текст 'Страница N'
 	$text['cpage']    = 'Page comments %s'; // текст 'Страница комментариев N'
 
-	$wrap_before    = '<ul class="breadcrumbs flexbox" itemscope itemtype="http://schema.org/BreadcrumbList">'; // открывающий тег обертки
+	$wrap_before    = '<ul class="breadcrumbs flexbox">'; // открывающий тег обертки
 	$wrap_after     = '</ul><!-- .breadcrumbs -->'; // закрывающий тег обертки
 	$sep            = ''; // разделитель между "крошками"
 	$before         = '<li class="breadcrumbs__item">'; // тег перед текущей "крошкой"
@@ -567,9 +567,9 @@ function dimox_breadcrumbs()
 
 	global $post;
 	$home_url       = home_url('/');
-	$link           = '<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
-	$link          .= '<a class="breadcrumbs-link" href="%1$s" itemprop="item"><span itemprop="name">%2$s</span></a>';
-	$link          .= '<meta itemprop="position" content="%3$s" />';
+	$link           = '<li class="breadcrumbs__item">';
+	$link          .= '<a class="breadcrumbs-link" href="%1$s"><span>%2$s</span></a>';
+	$link          .= '<meta content="%3$s" />';
 	$link          .= '</li>';
 	$parent_id      = ($post) ? $post->post_parent : '';
 	$home_link      = sprintf($link, $home_url, $text['home'], 1);
