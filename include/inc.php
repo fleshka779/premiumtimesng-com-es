@@ -217,28 +217,28 @@ remove_action('auth_cookie_bad_hash', 'rest_cookie_collect_status');
 remove_action('auth_cookie_valid', 'rest_cookie_collect_status');
 remove_filter('rest_authentication_errors', 'rest_cookie_check_errors', 100);
 // Отключаем события REST API
-remove_action( 'init', 'rest_api_init' );
-remove_action( 'rest_api_init', 'rest_api_default_filters', 10, 1 );
-remove_action( 'parse_request', 'rest_api_loaded' );
+remove_action('init', 'rest_api_init');
+remove_action('rest_api_init', 'rest_api_default_filters', 10, 1);
+remove_action('parse_request', 'rest_api_loaded');
 // Отключаем Embeds связанные с REST API
-remove_filter( 'rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4 ); 
+remove_filter('rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4);
 // Убираем oembed ссылки в секции head
 remove_action('wp_head', 'wp_oembed_add_discovery_links');
 // Если собираетесь выводить oembed из других сайтов на своём, то закомментируйте следующую строку
 remove_action('wp_head', 'wp_oembed_add_host_js');
 
 // Редиректим со страницы /wp-json/ на главную
-add_action( 'template_redirect', function() {
-   if ( preg_match( '#\/wp-json\/.*?#', $_SERVER['REQUEST_URI'] ) ) {
-       wp_redirect( get_option( 'siteurl' ), 301 );
-       die();
-   }
-} );
+add_action('template_redirect', function () {
+	if (preg_match('#\/wp-json\/.*?#', $_SERVER['REQUEST_URI'])) {
+		wp_redirect(get_option('siteurl'), 301);
+		die();
+	}
+});
 
 
-add_action( 'rss_head', '__return_false' );
-add_action( 'rss2_head', '__return_false' );
-add_action( 'commentsrss2_head', '__return_false' );
+add_action('rss_head', '__return_false');
+add_action('rss2_head', '__return_false');
+add_action('commentsrss2_head', '__return_false');
 
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'feed_links', 2);
@@ -391,7 +391,7 @@ function disable_emojicons_tinymce($plugins)
 }
 
 
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 // Allow SVG
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
