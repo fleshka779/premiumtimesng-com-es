@@ -92,9 +92,7 @@
 </footer>
 <button class="btn btn-up" type="button">
     <svg width="14" height="20">
-        <use href="/wp-content/themes/time/img/sprite.svg#sprite--arrow-long-none" />
-        <!-- <use href="<?= TEMPLATE_URL ?>/img/sprite.svg#sprite--arrow-long-none" /> -->
-
+        <use href="<?= TEMPLATE_URL ?>/img/sprite.svg#sprite--arrow-long-none" />
     </svg>
 </button>
 <?
