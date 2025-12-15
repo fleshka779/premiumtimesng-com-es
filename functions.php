@@ -1146,15 +1146,19 @@ function theme_get_breadcrumbs()
 
 // Add hreflangs
 add_action('wp_head', function () {
+
 	if (is_admin()) {
 		return;
 	}
 
-	$current_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI']));
+	$base = 'https://www.premiumtimesng.com/casino/hu';
+	$uri = $_SERVER['REQUEST_URI'] ?? '/';
+	$uri = strtok($uri, '?');
+	$uri = preg_replace('#^/(?:casino/)?hu/#i', '/', $uri);
 
-	$current_url = strtok($current_url, '?');
+	$uri = '/' . ltrim($uri, '/');
 
-	$current_url = trailingslashit($current_url);
+	$current_url = trailingslashit(rtrim($base, '/') . $uri);
 
 	echo "\n<link rel=\"alternate\" hreflang=\"hu-HU\" href=\"" . esc_url($current_url) . "\" />\n";
 	echo "<link rel=\"alternate\" hreflang=\"hu\" href=\"" . esc_url($current_url) . "\" />\n";
