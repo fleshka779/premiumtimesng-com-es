@@ -1143,3 +1143,20 @@ function theme_get_breadcrumbs()
 	$items[] = array('name' => get_bloginfo('name'), 'url' => home_url('/'));
 	return $items;
 }
+
+// Add hreflangs
+add_action('wp_head', function () {
+	if (is_admin()) {
+		return;
+	}
+
+	$current_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI']));
+
+	$current_url = strtok($current_url, '?');
+
+	$current_url = trailingslashit($current_url);
+
+	echo "\n<link rel=\"alternate\" hreflang=\"hu-HU\" href=\"" . esc_url($current_url) . "\" />\n";
+	echo "<link rel=\"alternate\" hreflang=\"hu\" href=\"" . esc_url($current_url) . "\" />\n";
+	echo "<link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($current_url) . "\" />\n";
+}, 5);
