@@ -166,7 +166,9 @@
                                 $id = $item->ID;
                             ?>
                                 <div class="note__item">
-                                    <img src="<?= get_the_post_thumbnail_url($id); ?>" alt="<?= esc_attr(strip_tags(get_the_title($id))); ?>" width="210" height="130" class="img">
+                                    <a href="<?= get_the_permalink($id); ?>">
+                                        <img src="<?= get_the_post_thumbnail_url($id); ?>" alt="<?= esc_attr(strip_tags(get_the_title($id))); ?>" width="210" height="130" class="img">
+                                    </a>
                                     <div class="note-body">
                                         <a href="<?= get_the_permalink($id); ?>" class="note-heading"><span><?= strip_tags(get_the_title($id)); ?></span></a>
                                         <time datetime="<?= get_the_modified_date('Y-m-d', $id) ?>" class="note-time"><?= get_the_modified_date('d.m.Y', $id) ?></time>
