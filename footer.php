@@ -167,6 +167,12 @@ if ($banner) {
     </div>
 <? } ?>
 
+<?php
+
+$content = replace_dynamic_vars(ob_get_clean());
+echo $content;
+?>
+
 <script src="<?= TEMPLATE_URL ?>/js/js.js"></script>
 <script src="<?= TEMPLATE_URL ?>/js/custom.js"></script>
 <? wp_footer(); ?>

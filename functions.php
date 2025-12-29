@@ -1164,3 +1164,26 @@ add_action('wp_head', function () {
 	echo "<link rel=\"alternate\" hreflang=\"hu\" href=\"" . esc_url($current_url) . "\" />\n";
 	echo "<link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($current_url) . "\" />\n";
 }, 5);
+
+
+function get_current_month(): string
+{
+	return wp_date('F');
+}
+
+function get_current_year(): string
+{
+	return wp_date('Y');
+}
+
+function replace_dynamic_vars(string $text): string
+{
+	return str_replace(
+		['[year]', '[month]'],
+		[get_current_year(), get_current_month()],
+		$text
+	);
+}
+
+add_filter('wpseo_title', 'replace_dynamic_vars');
+add_filter('wpseo_metadesc', 'replace_dynamic_vars');
