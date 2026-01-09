@@ -2367,4 +2367,19 @@ main {
     right: 4.5px;
   }
 }
+html.hu-hide-offers .offer {
+  display: none !important;
+}
+
+html.hu-hide-offers .banner {
+  display: none !important;
+}
+
+html.hu-hide-offers .bonus-btn {
+    display: none !important;
+}
+
+html.hu-hide-offers .logo {
+    margin: 0 auto;
+}
 /*# sourceMappingURL=../sourcemaps/style.css.map */
